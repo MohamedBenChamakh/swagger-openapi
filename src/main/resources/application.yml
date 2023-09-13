@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+    url: /openapi-definition.yml
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
