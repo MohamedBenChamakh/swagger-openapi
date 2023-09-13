@@ -21,25 +21,23 @@ paths:
              schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Post'
+                  $ref: '#/components/schemas/PostResponseBody'
           description: posts returned successfully
 
 
 
 components:
   schemas:
-    Post:
+    PostResponseBody:
       type: object
-      required:
-        - id
-        - name
       properties:
         id:
-          type: integer
-          format: int64
-        name:
           type: string
-        tag:
+        title:
+          type: string
+        content:
+          type: string
+        createdAt:
           type: string
     Error:
       type: object

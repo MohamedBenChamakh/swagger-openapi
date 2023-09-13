@@ -5,7 +5,7 @@
  */
 package com.utils.openapi.api;
 
-import com.utils.openapi.model.Post;
+import com.utils.openapi.model.PostResponseBody;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-13T17:52:05.824872400+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-13T19:05:17.654186600+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -30,28 +30,28 @@ public interface PostClientApi {
     }
 
     /**
-     * GET /api/v1/post
+     * GET /api/v1/posts
      *
      * @return posts returned successfully (status code 200)
      */
-    @ApiOperation(value = "", nickname = "getAllPosts", notes = "", response = Post.class, responseContainer = "List", tags={ "post-client", })
+    @ApiOperation(value = "", nickname = "getAllPosts", notes = "", response = PostResponseBody.class, responseContainer = "List", tags={ "post-client", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "posts returned successfully", response = Post.class, responseContainer = "List") })
+        @ApiResponse(code = 200, message = "posts returned successfully", response = PostResponseBody.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/v1/post",
+        value = "/api/v1/posts",
         produces = { "application/json" }
     )
-    default ResponseEntity<List<Post>> _getAllPosts() {
+    default ResponseEntity<List<PostResponseBody>> _getAllPosts() {
         return getAllPosts();
     }
 
     // Override this method
-    default  ResponseEntity<List<Post>> getAllPosts() {
+    default  ResponseEntity<List<PostResponseBody>> getAllPosts() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"name\" : \"name\", \"id\" : 0, \"tag\" : \"tag\" }";
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"id\" : \"id\", \"title\" : \"title\", \"content\" : \"content\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
