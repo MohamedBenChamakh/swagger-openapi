@@ -10,23 +10,23 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * CommentResponseBody
+ * UserResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
-public class CommentResponseBody   {
+public class UserResponseBody   {
   @JsonProperty("id")
   private String id;
 
-  @JsonProperty("createdAt")
-  private String createdAt;
+  @JsonProperty("username")
+  private String username;
 
-  @JsonProperty("content")
-  private String content;
+  @JsonProperty("phoneNumber")
+  private String phoneNumber;
 
-  @JsonProperty("like")
-  private Boolean like;
+  @JsonProperty("email")
+  private String email;
 
-  public CommentResponseBody id(String id) {
+  public UserResponseBody id(String id) {
     this.id = id;
     return this;
   }
@@ -46,64 +46,64 @@ public class CommentResponseBody   {
     this.id = id;
   }
 
-  public CommentResponseBody createdAt(String createdAt) {
-    this.createdAt = createdAt;
+  public UserResponseBody username(String username) {
+    this.username = username;
     return this;
   }
 
   /**
-   * Get createdAt
-   * @return createdAt
+   * Get username
+   * @return username
   */
   @ApiModelProperty(value = "")
 
 
-  public String getCreatedAt() {
-    return createdAt;
+  public String getUsername() {
+    return username;
   }
 
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
-  public CommentResponseBody content(String content) {
-    this.content = content;
+  public UserResponseBody phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
   /**
-   * Get content
-   * @return content
+   * Get phoneNumber
+   * @return phoneNumber
   */
   @ApiModelProperty(value = "")
 
 
-  public String getContent() {
-    return content;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setContent(String content) {
-    this.content = content;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
-  public CommentResponseBody like(Boolean like) {
-    this.like = like;
+  public UserResponseBody email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
-   * Get like
-   * @return like
+   * Get email
+   * @return email
   */
   @ApiModelProperty(value = "")
 
 
-  public Boolean getLike() {
-    return like;
+  public String getEmail() {
+    return email;
   }
 
-  public void setLike(Boolean like) {
-    this.like = like;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -115,27 +115,27 @@ public class CommentResponseBody   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommentResponseBody commentResponseBody = (CommentResponseBody) o;
-    return Objects.equals(this.id, commentResponseBody.id) &&
-        Objects.equals(this.createdAt, commentResponseBody.createdAt) &&
-        Objects.equals(this.content, commentResponseBody.content) &&
-        Objects.equals(this.like, commentResponseBody.like);
+    UserResponseBody userResponseBody = (UserResponseBody) o;
+    return Objects.equals(this.id, userResponseBody.id) &&
+        Objects.equals(this.username, userResponseBody.username) &&
+        Objects.equals(this.phoneNumber, userResponseBody.phoneNumber) &&
+        Objects.equals(this.email, userResponseBody.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, content, like);
+    return Objects.hash(id, username, phoneNumber, email);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommentResponseBody {\n");
+    sb.append("class UserResponseBody {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    like: ").append(toIndentedString(like)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");
     return sb.toString();
   }

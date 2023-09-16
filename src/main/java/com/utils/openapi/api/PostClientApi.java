@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -78,7 +78,41 @@ public interface PostClientApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /api/v1/posts/{postId}
+     *
+     * @param postId post id (required)
+     * @return post returned successfully (status code 200)
+     */
+    @ApiOperation(value = "", nickname = "getPostById", notes = "", response = PostResponseBody.class, tags={ "post-client", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "post returned successfully", response = PostResponseBody.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v1/posts/{postId}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<PostResponseBody> _getPostById(@ApiParam(value = "post id", required = true) @PathVariable("postId") String postId) {
+        return getPostById(postId);
+    }
+
+    // Override this method
+    default  ResponseEntity<PostResponseBody> getPostById(String postId) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

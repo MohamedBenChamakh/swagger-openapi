@@ -4,6 +4,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.utils.openapi.model.CommentResponseBody;
+import com.utils.openapi.model.PublisherResponseBody;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -15,10 +16,13 @@ import javax.validation.constraints.*;
 /**
  * PostResponseBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
 public class PostResponseBody   {
   @JsonProperty("id")
   private String id;
+
+  @JsonProperty("publisher")
+  private PublisherResponseBody publisher;
 
   @JsonProperty("title")
   private String title;
@@ -54,6 +58,27 @@ public class PostResponseBody   {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public PostResponseBody publisher(PublisherResponseBody publisher) {
+    this.publisher = publisher;
+    return this;
+  }
+
+  /**
+   * Get publisher
+   * @return publisher
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public PublisherResponseBody getPublisher() {
+    return publisher;
+  }
+
+  public void setPublisher(PublisherResponseBody publisher) {
+    this.publisher = publisher;
   }
 
   public PostResponseBody title(String title) {
@@ -176,6 +201,7 @@ public class PostResponseBody   {
     }
     PostResponseBody postResponseBody = (PostResponseBody) o;
     return Objects.equals(this.id, postResponseBody.id) &&
+        Objects.equals(this.publisher, postResponseBody.publisher) &&
         Objects.equals(this.title, postResponseBody.title) &&
         Objects.equals(this.type, postResponseBody.type) &&
         Objects.equals(this.content, postResponseBody.content) &&
@@ -185,7 +211,7 @@ public class PostResponseBody   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, type, content, createdAt, comments);
+    return Objects.hash(id, publisher, title, type, content, createdAt, comments);
   }
 
   @Override
@@ -194,6 +220,7 @@ public class PostResponseBody   {
     sb.append("class PostResponseBody {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");

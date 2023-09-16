@@ -10,56 +10,54 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Error
+ * PublisherResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
-public class Error   {
-  @JsonProperty("code")
-  private Integer code;
+public class PublisherResponseBody   {
+  @JsonProperty("id")
+  private String id;
 
-  @JsonProperty("message")
-  private String message;
+  @JsonProperty("username")
+  private String username;
 
-  public Error code(Integer code) {
-    this.code = code;
+  public PublisherResponseBody id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get code
-   * @return code
+   * Get id
+   * @return id
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
-  public Integer getCode() {
-    return code;
+  public String getId() {
+    return id;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public Error message(String message) {
-    this.message = message;
+  public PublisherResponseBody username(String username) {
+    this.username = username;
     return this;
   }
 
   /**
-   * Get message
-   * @return message
+   * Get username
+   * @return username
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
-  public String getMessage() {
-    return message;
+  public String getUsername() {
+    return username;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
 
@@ -71,23 +69,23 @@ public class Error   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.code, error.code) &&
-        Objects.equals(this.message, error.message);
+    PublisherResponseBody publisherResponseBody = (PublisherResponseBody) o;
+    return Objects.equals(this.id, publisherResponseBody.id) &&
+        Objects.equals(this.username, publisherResponseBody.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(id, username);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
+    sb.append("class PublisherResponseBody {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

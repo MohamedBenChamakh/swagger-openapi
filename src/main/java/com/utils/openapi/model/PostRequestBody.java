@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * PostRequestBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
 public class PostRequestBody   {
   @JsonProperty("title")
   private String title;
@@ -22,6 +22,9 @@ public class PostRequestBody   {
 
   @JsonProperty("createdAt")
   private String createdAt;
+
+  @JsonProperty("publisherId")
+  private String publisherId;
 
   public PostRequestBody title(String title) {
     this.title = title;
@@ -85,6 +88,27 @@ public class PostRequestBody   {
     this.createdAt = createdAt;
   }
 
+  public PostRequestBody publisherId(String publisherId) {
+    this.publisherId = publisherId;
+    return this;
+  }
+
+  /**
+   * Get publisherId
+   * @return publisherId
+  */
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getPublisherId() {
+    return publisherId;
+  }
+
+  public void setPublisherId(String publisherId) {
+    this.publisherId = publisherId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -97,12 +121,13 @@ public class PostRequestBody   {
     PostRequestBody postRequestBody = (PostRequestBody) o;
     return Objects.equals(this.title, postRequestBody.title) &&
         Objects.equals(this.content, postRequestBody.content) &&
-        Objects.equals(this.createdAt, postRequestBody.createdAt);
+        Objects.equals(this.createdAt, postRequestBody.createdAt) &&
+        Objects.equals(this.publisherId, postRequestBody.publisherId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, content, createdAt);
+    return Objects.hash(title, content, createdAt, publisherId);
   }
 
   @Override
@@ -113,6 +138,7 @@ public class PostRequestBody   {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    publisherId: ").append(toIndentedString(publisherId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

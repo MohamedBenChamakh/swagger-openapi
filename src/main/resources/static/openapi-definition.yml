@@ -46,15 +46,57 @@ paths:
                   $ref: '#/components/schemas/PostResponseBody'
           description: posts returned successfully
 
+  /api/v1/posts/{postId}:
+    get:
+      parameters:
+        - in: path
+          name: postId
+          schema:
+            type: string
+          required: true
+          description: post id
+      tags:
+        - post-client
+      operationId: getPostById
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponseBody'
+          description: post returned successfully
+
+
+  /api/v1/users/{userId}:
+    get:
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: user id
+      tags:
+        - user-client
+      operationId: getUserById
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseBody'
+          description: user returned successfully
 
 
 components:
   schemas:
+
     PostRequestBody:
       type: object
       required:
         - title
         - content
+        - publisherId
       properties:
         title:
           type: string
@@ -62,11 +104,16 @@ components:
           type: string
         createdAt:
           type: string
+        publisherId:
+          type: string
+
     PostResponseBody:
       type: object
       properties:
         id:
           type: string
+        publisher:
+            $ref: '#/components/schemas/PublisherResponseBody'
         title:
           type: string
         type:
@@ -79,6 +126,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CommentResponseBody'
+
+    PublisherResponseBody:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+
+    UserResponseBody:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
 
     CommentResponseBody:
       type: object

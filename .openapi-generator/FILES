@@ -1,6 +1,9 @@
 src/main/java/com/utils/openapi/api/ApiUtil.java
 src/main/java/com/utils/openapi/api/PostClientApi.java
+src/main/java/com/utils/openapi/api/UserClientApi.java
 src/main/java/com/utils/openapi/model/CommentResponseBody.java
 src/main/java/com/utils/openapi/model/Error.java
 src/main/java/com/utils/openapi/model/PostRequestBody.java
 src/main/java/com/utils/openapi/model/PostResponseBody.java
+src/main/java/com/utils/openapi/model/PublisherResponseBody.java
+src/main/java/com/utils/openapi/model/UserResponseBody.java
