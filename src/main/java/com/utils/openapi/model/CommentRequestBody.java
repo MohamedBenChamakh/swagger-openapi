@@ -10,12 +10,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * CommentResponseBody
+ * CommentRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
-public class CommentResponseBody   {
-  @JsonProperty("id")
-  private String id;
+public class CommentRequestBody   {
+  @JsonProperty("postId")
+  private String postId;
 
   @JsonProperty("createdAt")
   private String createdAt;
@@ -26,27 +26,28 @@ public class CommentResponseBody   {
   @JsonProperty("like")
   private Boolean like;
 
-  public CommentResponseBody id(String id) {
-    this.id = id;
+  public CommentRequestBody postId(String postId) {
+    this.postId = postId;
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get postId
+   * @return postId
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public String getId() {
-    return id;
+  public String getPostId() {
+    return postId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPostId(String postId) {
+    this.postId = postId;
   }
 
-  public CommentResponseBody createdAt(String createdAt) {
+  public CommentRequestBody createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -66,7 +67,7 @@ public class CommentResponseBody   {
     this.createdAt = createdAt;
   }
 
-  public CommentResponseBody content(String content) {
+  public CommentRequestBody content(String content) {
     this.content = content;
     return this;
   }
@@ -75,7 +76,8 @@ public class CommentResponseBody   {
    * Get content
    * @return content
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public String getContent() {
@@ -86,7 +88,7 @@ public class CommentResponseBody   {
     this.content = content;
   }
 
-  public CommentResponseBody like(Boolean like) {
+  public CommentRequestBody like(Boolean like) {
     this.like = like;
     return this;
   }
@@ -115,24 +117,24 @@ public class CommentResponseBody   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommentResponseBody commentResponseBody = (CommentResponseBody) o;
-    return Objects.equals(this.id, commentResponseBody.id) &&
-        Objects.equals(this.createdAt, commentResponseBody.createdAt) &&
-        Objects.equals(this.content, commentResponseBody.content) &&
-        Objects.equals(this.like, commentResponseBody.like);
+    CommentRequestBody commentRequestBody = (CommentRequestBody) o;
+    return Objects.equals(this.postId, commentRequestBody.postId) &&
+        Objects.equals(this.createdAt, commentRequestBody.createdAt) &&
+        Objects.equals(this.content, commentRequestBody.content) &&
+        Objects.equals(this.like, commentRequestBody.like);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, content, like);
+    return Objects.hash(postId, createdAt, content, like);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommentResponseBody {\n");
+    sb.append("class CommentRequestBody {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    postId: ").append(toIndentedString(postId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    like: ").append(toIndentedString(like)).append("\n");

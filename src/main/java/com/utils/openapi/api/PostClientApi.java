@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -78,7 +78,7 @@ public interface PostClientApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : { \"name\" : \"name\", \"iconUrl\" : \"iconUrl\" }, \"content\" : \"content\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -112,7 +112,7 @@ public interface PostClientApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : { \"name\" : \"name\", \"iconUrl\" : \"iconUrl\" }, \"content\" : \"content\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

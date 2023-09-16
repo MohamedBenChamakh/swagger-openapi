@@ -10,54 +10,54 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * PublisherResponseBody
+ * PostTypeResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
-public class PublisherResponseBody   {
-  @JsonProperty("id")
-  private String id;
+public class PostTypeResponseBody   {
+  @JsonProperty("name")
+  private String name;
 
-  @JsonProperty("username")
-  private String username;
+  @JsonProperty("iconUrl")
+  private String iconUrl;
 
-  public PublisherResponseBody id(String id) {
-    this.id = id;
+  public PostTypeResponseBody name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get name
+   * @return name
   */
   @ApiModelProperty(value = "")
 
 
-  public String getId() {
-    return id;
+  public String getName() {
+    return name;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public PublisherResponseBody username(String username) {
-    this.username = username;
+  public PostTypeResponseBody iconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
     return this;
   }
 
   /**
-   * Get username
-   * @return username
+   * Get iconUrl
+   * @return iconUrl
   */
   @ApiModelProperty(value = "")
 
 
-  public String getUsername() {
-    return username;
+  public String getIconUrl() {
+    return iconUrl;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
   }
 
 
@@ -69,23 +69,23 @@ public class PublisherResponseBody   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PublisherResponseBody publisherResponseBody = (PublisherResponseBody) o;
-    return Objects.equals(this.id, publisherResponseBody.id) &&
-        Objects.equals(this.username, publisherResponseBody.username);
+    PostTypeResponseBody postTypeResponseBody = (PostTypeResponseBody) o;
+    return Objects.equals(this.name, postTypeResponseBody.name) &&
+        Objects.equals(this.iconUrl, postTypeResponseBody.iconUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username);
+    return Objects.hash(name, iconUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PublisherResponseBody {\n");
+    sb.append("class PostTypeResponseBody {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

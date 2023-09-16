@@ -66,6 +66,21 @@ paths:
                 $ref: '#/components/schemas/PostResponseBody'
           description: post returned successfully
 
+  /api/v1/comments:
+    post:
+      tags:
+        - comment-client
+      operationId: createComment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentRequestBody'
+      responses:
+        '201':
+          description: comment created successfully
+
 
   /api/v1/users/{userId}:
     get:
@@ -117,7 +132,7 @@ components:
         title:
           type: string
         type:
-          type: string
+          $ref: '#/components/schemas/PostTypeResponseBody'
         content:
           type: string
         createdAt:
@@ -126,6 +141,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CommentResponseBody'
+
+    PostTypeResponseBody:
+      type: object
+      properties:
+        name:
+          type: string
+        iconUrl:
+          type: string
 
     PublisherResponseBody:
       type: object
@@ -146,6 +169,21 @@ components:
           type: string
         email:
           type: string
+
+    CommentRequestBody:
+      type: object
+      required:
+        - content
+        - postId
+      properties:
+        postId:
+          type: string
+        createdAt:
+          type: string
+        content:
+          type: string
+        like:
+          type: boolean
 
     CommentResponseBody:
       type: object

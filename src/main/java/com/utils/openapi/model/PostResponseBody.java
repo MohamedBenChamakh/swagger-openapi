@@ -4,6 +4,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.utils.openapi.model.CommentResponseBody;
+import com.utils.openapi.model.PostTypeResponseBody;
 import com.utils.openapi.model.PublisherResponseBody;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +17,7 @@ import javax.validation.constraints.*;
 /**
  * PostResponseBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T15:43:22.607710600+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
 public class PostResponseBody   {
   @JsonProperty("id")
   private String id;
@@ -28,7 +29,7 @@ public class PostResponseBody   {
   private String title;
 
   @JsonProperty("type")
-  private String type;
+  private PostTypeResponseBody type;
 
   @JsonProperty("content")
   private String content;
@@ -101,7 +102,7 @@ public class PostResponseBody   {
     this.title = title;
   }
 
-  public PostResponseBody type(String type) {
+  public PostResponseBody type(PostTypeResponseBody type) {
     this.type = type;
     return this;
   }
@@ -112,12 +113,13 @@ public class PostResponseBody   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getType() {
+  public PostTypeResponseBody getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(PostTypeResponseBody type) {
     this.type = type;
   }
 
