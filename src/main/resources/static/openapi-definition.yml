@@ -39,6 +39,22 @@ components:
           type: string
         createdAt:
           type: string
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentResponseBody'
+
+    CommentResponseBody:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+        content:
+          type: string
+        like:
+          type: boolean
     Error:
       type: object
       required:

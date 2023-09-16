@@ -3,8 +3,11 @@ package com.utils.openapi.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.utils.openapi.model.CommentResponseBody;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -12,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * PostResponseBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-13T19:05:17.654186600+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T11:36:50.510816+01:00[Africa/Luanda]")
 public class PostResponseBody   {
   @JsonProperty("id")
   private String id;
@@ -25,6 +28,10 @@ public class PostResponseBody   {
 
   @JsonProperty("createdAt")
   private String createdAt;
+
+  @JsonProperty("comments")
+  @Valid
+  private List<CommentResponseBody> comments = null;
 
   public PostResponseBody id(String id) {
     this.id = id;
@@ -106,6 +113,35 @@ public class PostResponseBody   {
     this.createdAt = createdAt;
   }
 
+  public PostResponseBody comments(List<CommentResponseBody> comments) {
+    this.comments = comments;
+    return this;
+  }
+
+  public PostResponseBody addCommentsItem(CommentResponseBody commentsItem) {
+    if (this.comments == null) {
+      this.comments = new ArrayList<>();
+    }
+    this.comments.add(commentsItem);
+    return this;
+  }
+
+  /**
+   * Get comments
+   * @return comments
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public List<CommentResponseBody> getComments() {
+    return comments;
+  }
+
+  public void setComments(List<CommentResponseBody> comments) {
+    this.comments = comments;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -119,12 +155,13 @@ public class PostResponseBody   {
     return Objects.equals(this.id, postResponseBody.id) &&
         Objects.equals(this.title, postResponseBody.title) &&
         Objects.equals(this.content, postResponseBody.content) &&
-        Objects.equals(this.createdAt, postResponseBody.createdAt);
+        Objects.equals(this.createdAt, postResponseBody.createdAt) &&
+        Objects.equals(this.comments, postResponseBody.comments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, content, createdAt);
+    return Objects.hash(id, title, content, createdAt, comments);
   }
 
   @Override
@@ -136,6 +173,7 @@ public class PostResponseBody   {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
