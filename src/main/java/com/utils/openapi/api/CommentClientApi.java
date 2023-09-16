@@ -6,6 +6,7 @@
 package com.utils.openapi.api;
 
 import com.utils.openapi.model.CommentRequestBody;
+import com.utils.openapi.model.CommentResponseBody;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T17:12:39.115251300+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "CommentClient", description = "the CommentClient API")
 public interface CommentClientApi {
@@ -35,20 +36,30 @@ public interface CommentClientApi {
      * @param commentRequestBody  (required)
      * @return comment created successfully (status code 201)
      */
-    @ApiOperation(value = "", nickname = "createComment", notes = "", tags={ "comment-client", })
+    @ApiOperation(value = "", nickname = "createComment", notes = "", response = CommentResponseBody.class, tags={ "comment-client", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "comment created successfully") })
+        @ApiResponse(code = 201, message = "comment created successfully", response = CommentResponseBody.class) })
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/api/v1/comments",
+        produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<Void> _createComment(@ApiParam(value = "", required = true) @Valid @RequestBody CommentRequestBody commentRequestBody) {
+    default ResponseEntity<CommentResponseBody> _createComment(@ApiParam(value = "", required = true) @Valid @RequestBody CommentRequestBody commentRequestBody) {
         return createComment(commentRequestBody);
     }
 
     // Override this method
-    default  ResponseEntity<Void> createComment(CommentRequestBody commentRequestBody) {
+    default  ResponseEntity<CommentResponseBody> createComment(CommentRequestBody commentRequestBody) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

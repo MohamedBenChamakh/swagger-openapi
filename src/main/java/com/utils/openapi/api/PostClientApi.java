@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T17:12:39.115251300+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -36,20 +36,30 @@ public interface PostClientApi {
      * @param postRequestBody  (required)
      * @return post created successfully (status code 201)
      */
-    @ApiOperation(value = "", nickname = "createPost", notes = "", tags={ "post-client", })
+    @ApiOperation(value = "", nickname = "createPost", notes = "", response = PostResponseBody.class, tags={ "post-client", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "post created successfully") })
+        @ApiResponse(code = 201, message = "post created successfully", response = PostResponseBody.class) })
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/api/v1/posts",
+        produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<Void> _createPost(@ApiParam(value = "", required = true) @Valid @RequestBody PostRequestBody postRequestBody) {
+    default ResponseEntity<PostResponseBody> _createPost(@ApiParam(value = "", required = true) @Valid @RequestBody PostRequestBody postRequestBody) {
         return createPost(postRequestBody);
     }
 
     // Override this method
-    default  ResponseEntity<Void> createPost(PostRequestBody postRequestBody) {
+    default  ResponseEntity<PostResponseBody> createPost(PostRequestBody postRequestBody) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"publisher\" : { \"id\" : \"id\", \"username\" : \"username\" }, \"id\" : \"id\", \"title\" : \"title\", \"type\" : { \"name\" : \"name\", \"iconUrl\" : \"iconUrl\" }, \"content\" : \"content\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

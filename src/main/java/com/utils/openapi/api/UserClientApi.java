@@ -5,6 +5,7 @@
  */
 package com.utils.openapi.api;
 
+import com.utils.openapi.model.UserRequestBody;
 import com.utils.openapi.model.UserResponseBody;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T16:01:36.132603800+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T17:12:39.115251300+01:00[Africa/Lagos]")
 @Validated
 @Api(value = "UserClient", description = "the UserClient API")
 public interface UserClientApi {
@@ -58,6 +59,31 @@ public interface UserClientApi {
                 }
             }
         });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /api/v1/users
+     *
+     * @param userRequestBody  (required)
+     * @return user updated successfully (status code 204)
+     */
+    @ApiOperation(value = "", nickname = "updateUser", notes = "", tags={ "user-client", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 204, message = "user updated successfully") })
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        value = "/api/v1/users",
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<Void> _updateUser(@ApiParam(value = "", required = true) @Valid @RequestBody UserRequestBody userRequestBody) {
+        return updateUser(userRequestBody);
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> updateUser(UserRequestBody userRequestBody) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

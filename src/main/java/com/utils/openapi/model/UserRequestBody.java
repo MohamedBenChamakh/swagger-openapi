@@ -10,15 +10,21 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * UserResponseBody
+ * UserRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T17:12:39.115251300+01:00[Africa/Lagos]")
-public class UserResponseBody   {
+public class UserRequestBody   {
   @JsonProperty("id")
   private String id;
 
-  @JsonProperty("username")
-  private String username;
+  @JsonProperty("firstName")
+  private String firstName;
+
+  @JsonProperty("lastName")
+  private String lastName;
+
+  @JsonProperty("region")
+  private String region;
 
   @JsonProperty("phoneNumber")
   private String phoneNumber;
@@ -26,7 +32,7 @@ public class UserResponseBody   {
   @JsonProperty("email")
   private String email;
 
-  public UserResponseBody id(String id) {
+  public UserRequestBody id(String id) {
     this.id = id;
     return this;
   }
@@ -46,27 +52,67 @@ public class UserResponseBody   {
     this.id = id;
   }
 
-  public UserResponseBody username(String username) {
-    this.username = username;
+  public UserRequestBody firstName(String firstName) {
+    this.firstName = firstName;
     return this;
   }
 
   /**
-   * Get username
-   * @return username
+   * Get firstName
+   * @return firstName
   */
   @ApiModelProperty(value = "")
 
 
-  public String getUsername() {
-    return username;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
-  public UserResponseBody phoneNumber(String phoneNumber) {
+  public UserRequestBody lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Get lastName
+   * @return lastName
+  */
+  @ApiModelProperty(value = "")
+
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public UserRequestBody region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * Get region
+   * @return region
+  */
+  @ApiModelProperty(value = "")
+
+
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public UserRequestBody phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -86,7 +132,7 @@ public class UserResponseBody   {
     this.phoneNumber = phoneNumber;
   }
 
-  public UserResponseBody email(String email) {
+  public UserRequestBody email(String email) {
     this.email = email;
     return this;
   }
@@ -115,25 +161,29 @@ public class UserResponseBody   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserResponseBody userResponseBody = (UserResponseBody) o;
-    return Objects.equals(this.id, userResponseBody.id) &&
-        Objects.equals(this.username, userResponseBody.username) &&
-        Objects.equals(this.phoneNumber, userResponseBody.phoneNumber) &&
-        Objects.equals(this.email, userResponseBody.email);
+    UserRequestBody userRequestBody = (UserRequestBody) o;
+    return Objects.equals(this.id, userRequestBody.id) &&
+        Objects.equals(this.firstName, userRequestBody.firstName) &&
+        Objects.equals(this.lastName, userRequestBody.lastName) &&
+        Objects.equals(this.region, userRequestBody.region) &&
+        Objects.equals(this.phoneNumber, userRequestBody.phoneNumber) &&
+        Objects.equals(this.email, userRequestBody.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, phoneNumber, email);
+    return Objects.hash(id, firstName, lastName, region, phoneNumber, email);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserResponseBody {\n");
+    sb.append("class UserRequestBody {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");

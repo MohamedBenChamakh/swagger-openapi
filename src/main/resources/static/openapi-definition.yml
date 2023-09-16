@@ -22,6 +22,10 @@ paths:
                 $ref: '#/components/schemas/PostRequestBody'
       responses:
         '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponseBody'
           description: post created successfully
 
     get:
@@ -79,6 +83,10 @@ paths:
               $ref: '#/components/schemas/CommentRequestBody'
       responses:
         '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentResponseBody'
           description: comment created successfully
 
 
@@ -101,6 +109,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserResponseBody'
           description: user returned successfully
+
+  /api/v1/users:
+    put:
+      tags:
+        - user-client
+      operationId: updateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestBody'
+      responses:
+        '204':
+          description: user updated successfully
 
 
 components:
@@ -164,6 +187,22 @@ components:
         id:
           type: string
         username:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+
+    UserRequestBody:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        region:
           type: string
         phoneNumber:
           type: string

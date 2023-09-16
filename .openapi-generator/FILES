@@ -9,4 +9,5 @@ src/main/java/com/utils/openapi/model/PostRequestBody.java
 src/main/java/com/utils/openapi/model/PostResponseBody.java
 src/main/java/com/utils/openapi/model/PostTypeResponseBody.java
 src/main/java/com/utils/openapi/model/PublisherResponseBody.java
+src/main/java/com/utils/openapi/model/UserRequestBody.java
 src/main/java/com/utils/openapi/model/UserResponseBody.java
