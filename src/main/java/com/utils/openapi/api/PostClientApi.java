@@ -5,6 +5,7 @@
  */
 package com.utils.openapi.api;
 
+import com.utils.openapi.model.PostRequestBody;
 import com.utils.openapi.model.PostResponseBody;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T11:36:50.510816+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:06:14.826600900+01:00[Africa/Luanda]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -30,8 +31,34 @@ public interface PostClientApi {
     }
 
     /**
+     * POST /api/v1/posts
+     *
+     * @param postRequestBody  (required)
+     * @return post created successfully (status code 201)
+     */
+    @ApiOperation(value = "", nickname = "createPost", notes = "", tags={ "post-client", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 201, message = "post created successfully") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/api/v1/posts",
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<Void> _createPost(@ApiParam(value = "", required = true) @Valid @RequestBody PostRequestBody postRequestBody) {
+        return createPost(postRequestBody);
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> createPost(PostRequestBody postRequestBody) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
      * GET /api/v1/posts
      *
+     * @param page Page of post list (required)
      * @return posts returned successfully (status code 200)
      */
     @ApiOperation(value = "", nickname = "getAllPosts", notes = "", response = PostResponseBody.class, responseContainer = "List", tags={ "post-client", })
@@ -42,12 +69,12 @@ public interface PostClientApi {
         value = "/api/v1/posts",
         produces = { "application/json" }
     )
-    default ResponseEntity<List<PostResponseBody>> _getAllPosts() {
-        return getAllPosts();
+    default ResponseEntity<List<PostResponseBody>> _getAllPosts(@NotNull @ApiParam(value = "Page of post list", required = true, defaultValue = "0") @Valid @RequestParam(value = "page", required = true, defaultValue = "0") Integer page) {
+        return getAllPosts(page);
     }
 
     // Override this method
-    default  ResponseEntity<List<PostResponseBody>> getAllPosts() {
+    default  ResponseEntity<List<PostResponseBody>> getAllPosts(Integer page) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

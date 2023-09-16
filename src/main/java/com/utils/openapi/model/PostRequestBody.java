@@ -3,23 +3,17 @@ package com.utils.openapi.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.utils.openapi.model.CommentResponseBody;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * PostResponseBody
+ * PostRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:06:14.826600900+01:00[Africa/Luanda]")
-public class PostResponseBody   {
-  @JsonProperty("id")
-  private String id;
-
+public class PostRequestBody   {
   @JsonProperty("title")
   private String title;
 
@@ -29,31 +23,7 @@ public class PostResponseBody   {
   @JsonProperty("createdAt")
   private String createdAt;
 
-  @JsonProperty("comments")
-  @Valid
-  private List<CommentResponseBody> comments = null;
-
-  public PostResponseBody id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @ApiModelProperty(value = "")
-
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PostResponseBody title(String title) {
+  public PostRequestBody title(String title) {
     this.title = title;
     return this;
   }
@@ -62,7 +32,8 @@ public class PostResponseBody   {
    * Get title
    * @return title
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public String getTitle() {
@@ -73,7 +44,7 @@ public class PostResponseBody   {
     this.title = title;
   }
 
-  public PostResponseBody content(String content) {
+  public PostRequestBody content(String content) {
     this.content = content;
     return this;
   }
@@ -82,7 +53,8 @@ public class PostResponseBody   {
    * Get content
    * @return content
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public String getContent() {
@@ -93,7 +65,7 @@ public class PostResponseBody   {
     this.content = content;
   }
 
-  public PostResponseBody createdAt(String createdAt) {
+  public PostRequestBody createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -113,35 +85,6 @@ public class PostResponseBody   {
     this.createdAt = createdAt;
   }
 
-  public PostResponseBody comments(List<CommentResponseBody> comments) {
-    this.comments = comments;
-    return this;
-  }
-
-  public PostResponseBody addCommentsItem(CommentResponseBody commentsItem) {
-    if (this.comments == null) {
-      this.comments = new ArrayList<>();
-    }
-    this.comments.add(commentsItem);
-    return this;
-  }
-
-  /**
-   * Get comments
-   * @return comments
-  */
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public List<CommentResponseBody> getComments() {
-    return comments;
-  }
-
-  public void setComments(List<CommentResponseBody> comments) {
-    this.comments = comments;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -151,29 +94,25 @@ public class PostResponseBody   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostResponseBody postResponseBody = (PostResponseBody) o;
-    return Objects.equals(this.id, postResponseBody.id) &&
-        Objects.equals(this.title, postResponseBody.title) &&
-        Objects.equals(this.content, postResponseBody.content) &&
-        Objects.equals(this.createdAt, postResponseBody.createdAt) &&
-        Objects.equals(this.comments, postResponseBody.comments);
+    PostRequestBody postRequestBody = (PostRequestBody) o;
+    return Objects.equals(this.title, postRequestBody.title) &&
+        Objects.equals(this.content, postRequestBody.content) &&
+        Objects.equals(this.createdAt, postRequestBody.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, content, createdAt, comments);
+    return Objects.hash(title, content, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostResponseBody {\n");
+    sb.append("class PostRequestBody {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

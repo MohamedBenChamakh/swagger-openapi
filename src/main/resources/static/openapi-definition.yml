@@ -10,7 +10,29 @@ servers:
 
 paths:
   /api/v1/posts:
+    post:
+      tags:
+        - post-client
+      operationId: createPost
+      requestBody:
+        required: true
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRequestBody'
+      responses:
+        '201':
+          description: post created successfully
+
     get:
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            default: 0
+          required: true
+          description: Page of post list
       tags:
         - post-client
       operationId: getAllPosts
@@ -28,6 +50,18 @@ paths:
 
 components:
   schemas:
+    PostRequestBody:
+      type: object
+      required:
+        - title
+        - content
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
     PostResponseBody:
       type: object
       properties:
