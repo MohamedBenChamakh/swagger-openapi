@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * PostRequestBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:06:14.826600900+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
 public class PostRequestBody   {
   @JsonProperty("title")
   private String title;

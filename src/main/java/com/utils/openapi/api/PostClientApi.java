@@ -21,7 +21,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:06:14.826600900+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
 @Validated
 @Api(value = "PostClient", description = "the PostClient API")
 public interface PostClientApi {
@@ -78,7 +78,7 @@ public interface PostClientApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"id\" : \"id\", \"title\" : \"title\", \"content\" : \"content\" }";
+                    String exampleString = "{ \"createdAt\" : \"createdAt\", \"comments\" : [ { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" }, { \"createdAt\" : \"createdAt\", \"like\" : true, \"id\" : \"id\", \"content\" : \"content\" } ], \"id\" : \"id\", \"title\" : \"title\", \"type\" : \"type\", \"content\" : \"content\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

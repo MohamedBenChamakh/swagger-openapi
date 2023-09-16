@@ -15,13 +15,16 @@ import javax.validation.constraints.*;
 /**
  * PostResponseBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:06:14.826600900+01:00[Africa/Luanda]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T12:39:19.759088300+01:00[Africa/Luanda]")
 public class PostResponseBody   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("title")
   private String title;
+
+  @JsonProperty("type")
+  private String type;
 
   @JsonProperty("content")
   private String content;
@@ -71,6 +74,26 @@ public class PostResponseBody   {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public PostResponseBody type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+  */
+  @ApiModelProperty(value = "")
+
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public PostResponseBody content(String content) {
@@ -154,6 +177,7 @@ public class PostResponseBody   {
     PostResponseBody postResponseBody = (PostResponseBody) o;
     return Objects.equals(this.id, postResponseBody.id) &&
         Objects.equals(this.title, postResponseBody.title) &&
+        Objects.equals(this.type, postResponseBody.type) &&
         Objects.equals(this.content, postResponseBody.content) &&
         Objects.equals(this.createdAt, postResponseBody.createdAt) &&
         Objects.equals(this.comments, postResponseBody.comments);
@@ -161,7 +185,7 @@ public class PostResponseBody   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, content, createdAt, comments);
+    return Objects.hash(id, title, type, content, createdAt, comments);
   }
 
   @Override
@@ -171,6 +195,7 @@ public class PostResponseBody   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
